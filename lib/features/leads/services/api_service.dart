@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:new_development/features/leads/core/isolates/json_parser.dart';
 import 'package:new_development/features/leads/models/lead_model.dart';
 
 class ApiService {
@@ -12,17 +14,17 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
-      List data = json.decode(response.body);
+      //parse json in background isolate
+      final List<Leads> allLeads = await compute(parseLeads, response.body);
 
       int start = (page - 1) * limit;
       int end = start + limit;
 
-      if (start >= data.length) return [];
-      final paginatedData = data.sublist(
+      if (start >= allLeads.length) return [];
+      return allLeads.sublist(
         start,
-        end > data.length ? data.length : end,
+        end > allLeads.length ? allLeads.length : end,
       );
-      return paginatedData.map((e) => Leads.fromJson(e)).toList();
     }
     throw Exception('Api error');
   }
