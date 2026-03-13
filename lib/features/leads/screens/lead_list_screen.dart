@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_development/features/leads/bloc/lead_bloc.dart';
+import 'package:new_development/features/leads/widgets/lead_card.dart';
 
 class LeadListScreen extends StatefulWidget {
   const LeadListScreen({super.key});
@@ -30,7 +31,9 @@ class _LeadListScreenState extends State<LeadListScreen> {
       body: BlocBuilder<LeadBloc, LeadState>(
         builder: (context, state) {
           if (state is LeadLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(color: Colors.blueAccent),
+            );
           }
           if (state is LeadLoaded) {
             return ListView.builder(
@@ -41,14 +44,15 @@ class _LeadListScreenState extends State<LeadListScreen> {
               itemBuilder: (context, index) {
                 if (index < state.leads.length) {
                   var lead = state.leads[index];
-                  return ListTile(
-                    title: Text(lead.title),
-                    subtitle: Text(lead.body),
-                  );
+                  return LeadCard(lead: lead);
                 } else {
                   return const Padding(
                     padding: EdgeInsets.all(20),
-                    child: Center(child: CircularProgressIndicator()),
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.orangeAccent,
+                      ),
+                    ),
                   );
                 }
               },
