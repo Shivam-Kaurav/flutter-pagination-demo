@@ -1,5 +1,5 @@
-import 'package:new_development/features/leads/models/lead_model.dart';
-import 'package:new_development/features/leads/services/api_service.dart';
+import 'package:new_development/features/leads/data/models/lead_model.dart';
+import 'package:new_development/features/leads/data/api_service.dart';
 
 class LeadRepository {
   final ApiService apiService;

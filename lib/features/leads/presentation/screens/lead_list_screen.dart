@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_development/features/leads/bloc/lead_bloc.dart';
-import 'package:new_development/features/leads/widgets/lead_card.dart';
+import 'package:new_development/features/leads/presentation/bloc/lead_bloc.dart';
+import 'package:new_development/features/leads/presentation/widgets/lead_card.dart';
 
 class LeadListScreen extends StatefulWidget {
   const LeadListScreen({super.key});

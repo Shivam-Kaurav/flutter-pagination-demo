@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_development/features/leads/models/lead_model.dart';
-import 'package:new_development/features/leads/repository/lead_repository.dart';
+import 'package:new_development/features/leads/data/models/lead_model.dart';
+import 'package:new_development/features/leads/data/repository/lead_repository.dart';
 
 part 'lead_event.dart';
 part 'lead_state.dart';

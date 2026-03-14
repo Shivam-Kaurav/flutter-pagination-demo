@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_development/features/leads/models/lead_model.dart';
+import 'package:new_development/features/leads/data/models/lead_model.dart';
 
 class LeadCard extends StatelessWidget {
   final Leads lead;
